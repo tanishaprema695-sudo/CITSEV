@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Learn & Awareness Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>EV Learn & Awareness Platform</h1>
+      <p>
+        Learn EV fundamentals, simulate driving range, find charging stations, and
+        book charging slots.
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1) Student EV Learning</h2>
+        <ul>
+          <li>How battery capacity (kWh) affects range.</li>
+          <li>How speed, AC usage, and passenger load impact efficiency.</li>
+          <li>How charging power changes charging time.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>2) EV Range Simulator</h2>
+        <form id="rangeForm">
+          <div class="grid">
+            <label>
+              Car model
+              <select id="carModel"></select>
+            </label>
+            <label>
+              Trip distance (km)
+              <input id="distance" type="number" min="1" value="120" required />
+            </label>
+            <label>
+              Average speed (km/h)
+              <input id="speed" type="number" min="20" max="150" value="70" required />
+            </label>
+            <label>
+              AC usage
+              <select id="acUse">
+                <option value="0">Off</option>
+                <option value="0.07" selected>Moderate</option>
+                <option value="0.12">High</option>
+              </select>
+            </label>
+            <label>
+              Passengers
+              <input id="passengers" type="number" min="1" max="7" value="2" required />
+            </label>
+          </div>
+          <button type="submit">Calculate EV Range</button>
+        </form>
+
+        <div id="rangeResult" class="result" aria-live="polite"></div>
+      </section>
+
+      <section class="card">
+        <h2>3) Find Charging Station</h2>
+        <label>
+          City
+          <select id="cityFilter"></select>
+        </label>
+        <div id="stationList" class="station-list"></div>
+      </section>
+
+      <section class="card">
+        <h2>4) Book Charging Slot</h2>
+        <form id="bookingForm">
+          <div class="grid">
+            <label>
+              Student name
+              <input id="studentName" type="text" required />
+            </label>
+            <label>
+              Car model
+              <select id="bookingCarModel"></select>
+            </label>
+            <label>
+              Station
+              <select id="bookingStation"></select>
+            </label>
+            <label>
+              Slot date
+              <input id="slotDate" type="date" required />
+            </label>
+            <label>
+              Slot time
+              <input id="slotTime" type="time" required />
+            </label>
+          </div>
+          <button type="submit">Book Slot</button>
+        </form>
+
+        <div id="bookingResult" class="result" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
